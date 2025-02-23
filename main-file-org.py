@@ -3,7 +3,7 @@ import shutil
 from pathlib import Path
 
 DOWNLOADS_FOLDER = Path.home() / "Downloads"
-TRASH_FOLDER=Path.home() / ".local/share/Trash"
+TRASH_FOLDER=Path.home() / ".local/share/Trash/files"
 # Define categories and their corresponding file extensions
 FILE_CATEGORIES = {
     "Images": [".jpg", ".jpeg", ".png", ".gif", ".svg", ".webp"],
@@ -35,6 +35,22 @@ def organize_files():
         for file in TRASH_FOLDER.iterdir():
             if file.is_file():
                 print(file)
+        print("Do you want to delete all these files?")
+        j=input()
+        if(j=='Y' or j=='y'):
+            for file in TRASH_FOLDER.iterdir():
+                if file.is_file():
+                    try:
+                        file.unlink()
+                        print(f"Deleted: {file.name}")
+                    except Exception as e:
+                        print(f"Error deleting {file.name}: {e}")
+                elif file.is_dir():
+                    try:
+                        shutil.rmtree(file)
+                        print(f"Deleted folder: {file.name}")
+                    except Exception as e:
+                        print(f"Error deleting {item.name}:{e}")
 
 def move_file(file):
     """Moves a file to the appropriate category folder based on its extension."""
