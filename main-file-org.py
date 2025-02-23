@@ -1,19 +1,15 @@
 import os
 import shutil
 from pathlib import Path
+import json
 
 DOWNLOADS_FOLDER = Path.home() / "Downloads"
 TRASH_FOLDER=Path.home() / ".local/share/Trash/files"
 # Define categories and their corresponding file extensions
-FILE_CATEGORIES = {
-    "Images": [".jpg", ".jpeg", ".png", ".gif", ".svg", ".webp"],
-    "Videos": [".mp4", ".mkv", ".avi", ".mov", ".flv", ".webm"],
-    "Documents": [".pdf", ".docx", ".txt", ".xlsx", ".pptx", ".csv"],
-    "Compressed": [".zip", ".rar", ".7z", ".tar.gz"],
-    "Executables": [".exe", ".msi", ".sh", ".bat", ".app"],
-    "Code Files": [".py", ".js", ".html", ".css", ".java", ".cpp"],
-    "Music": [".mp3", ".wav", ".flac", ".aac", ".ogg"]
-}
+# Load categories and their corresponding file extensions from config.json
+config_path = Path(__file__).parent / "config.json"
+with open(config_path, "r") as config_file:
+    FILE_CATEGORIES = json.load(config_file)
 
 def organize_files():
     

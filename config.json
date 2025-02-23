@@ -1,0 +1,7 @@
+{"Images": [".jpg", ".jpeg", ".png", ".gif", ".svg", ".webp"],
+"Videos": [".mp4", ".mkv", ".avi", ".mov", ".flv", ".webm"],
+"Documents": [".pdf", ".docx", ".txt", ".xlsx", ".pptx", ".csv"],
+"Compressed": [".zip", ".rar", ".7z", ".tar.gz"],
+"Executables": [".exe", ".msi", ".sh", ".bat", ".app"],
+"Code Files": [".py", ".js", ".html", ".css", ".java", ".cpp"],
+"Music": [".mp3", ".wav", ".flac", ".aac", ".ogg"]}
