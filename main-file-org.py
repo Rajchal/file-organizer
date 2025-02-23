@@ -2,9 +2,8 @@ import os
 import shutil
 from pathlib import Path
 
-# Define the Downloads folder path
 DOWNLOADS_FOLDER = Path.home() / "Downloads"
-
+TRASH_FOLDER=Path.home() / ".local/share/Trash"
 # Define categories and their corresponding file extensions
 FILE_CATEGORIES = {
     "Images": [".jpg", ".jpeg", ".png", ".gif", ".svg", ".webp"],
@@ -17,7 +16,6 @@ FILE_CATEGORIES = {
 }
 
 def organize_files():
-    """Organizes files in the Downloads folder into categorized subfolders."""
     
     # Ensure the Downloads folder exists
     if not DOWNLOADS_FOLDER.exists():
@@ -28,6 +26,15 @@ def organize_files():
     for file in DOWNLOADS_FOLDER.iterdir():
         if file.is_file():  # Ignore directories
             move_file(file)
+    print("Do you want to delete your trash??")
+    i=input()
+    if (i=='Y' or i=='y'):
+        if not TRASH_FOLDER.exists():
+            print(f"Error: {TRASH_FOLDER} does not exist.")
+            return
+        for file in TRASH_FOLDER.iterdir():
+            if file.is_file():
+                print(file)
 
 def move_file(file):
     """Moves a file to the appropriate category folder based on its extension."""
