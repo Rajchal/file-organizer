@@ -22,6 +22,10 @@ def organize_files():
     for file in DOWNLOADS_FOLDER.iterdir():
         if file.is_file():  # Ignore directories
             move_file(file)
+    print("Do you want to delete from your Downloads?(Y?)")
+    po=input()
+    if(po=='Y' or po=='y'):
+        
     print("Do you want to delete your trash??")
     i=input()
     if (i=='Y' or i=='y'):
