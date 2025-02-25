@@ -11,7 +11,7 @@ The File Organizer is a Python script designed to help you organize files in a s
 ## Installation
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/file-organizer.git
+    git clone https://github.com/Rajchal/file-organizer.git
     ```
 2. Navigate to the project directory:
     ```bash
@@ -50,6 +50,3 @@ After running the script:
 
 ## Contributing
 Contributions are welcome! Please fork the repository and submit a pull request.
-
-## License
-This project is licensed under the MIT License.
