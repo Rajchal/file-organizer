@@ -23,8 +23,27 @@ def organize_files():
         if file.is_file():  # Ignore directories
             move_file(file)
     print("Do you want to delete from your Downloads?(Y?)")
-    po=input()
-    if(po=='Y' or po=='y'):
+    po = input()
+    if po == 'Y' or po == 'y':
+        for file in DOWNLOADS_FOLDER.iterdir():
+            if file.is_file():
+                print(file)
+        print("Do you want to delete all these files?")
+        j = input()
+        if j == 'Y' or j == 'y':
+            for file in DOWNLOADS_FOLDER.iterdir():
+                if file.is_file():
+                    try:
+                        file.unlink()
+                        print(f"Deleted: {file.name}")
+                    except Exception as e:
+                        print(f"Error deleting {file.name}: {e}")
+                elif file.is_dir():
+                    try:
+                        shutil.rmtree(file)
+                        print(f"Deleted folder: {file.name}")
+                    except Exception as e:
+                        print(f"Error deleting {file.name}: {e}")
         
     print("Do you want to delete your trash??")
     i=input()
